@@ -1,9 +1,9 @@
-module com.carpark.carpark {
+module com.carpark {
     requires javafx.controls;
     requires javafx.fxml;
 
     requires com.dlsc.formsfx;
 
-    opens com.carpark.carpark to javafx.fxml;
-    exports com.carpark.carpark;
+    opens com.carpark to javafx.fxml;
+    exports com.carpark;
 }
