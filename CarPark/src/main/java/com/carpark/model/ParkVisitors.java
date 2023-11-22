@@ -43,7 +43,7 @@ public class ParkVisitors {
         for (ParkVisitor parkVisitor: parkVisitors) {
             sum+=parkVisitor.getPrice();
         }
-        return "Price of all ParkVisitor"+sum;
+        return "Price of all ParkVisitor "+sum;
     }
     public String weightOfAll(){
         int sum = 0;
