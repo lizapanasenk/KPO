@@ -21,11 +21,17 @@ public class Post {
         parkVisitors.add(new Trucks(new Date(),1500,"Box car" ));
 
     }
-    public String buySubject(CarPark carPark){
+    public String addCar(CarPark carPark){
         Random random = new Random();
         ParkVisitor parkVisitor =parkVisitors.get(random.nextInt(parkVisitors.size()));
         parkVisitor.setDate(new Date());
         carPark.addParkVisitor(parkVisitor);
         return carPark +" add to Car park\n";
+    }
+    public String addCarHurd(CarPark carPark){
+        StringBuilder all = new StringBuilder();
+        for (int i = 0; i < 20; i++)
+            all.append(addCar(carPark));
+        return all.toString();
     }
 }
