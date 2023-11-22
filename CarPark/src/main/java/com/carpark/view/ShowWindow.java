@@ -1,96 +1,113 @@
 package com.carpark.view;
 
 
+import com.carpark.controller.Post;
+import com.carpark.model.CarPark;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class ShowWindow {
-    public ShowWindow(Stage primaryStage){
+    public ShowWindow(CarPark carPark ,Stage primaryStage){
         TextArea textArea = new TextArea();
-        textArea.setPrefColumnCount(40);
-        textArea.setPrefRowCount(20);
+        textArea.setPrefColumnCount(50);
+        textArea.setPrefRowCount(30);
 
 
-//        Button btnAdd = new Button("Add subject in room");
-//        btnAdd.setFont(new Font(15));
-//        btnAdd.setOnAction(event -> textArea.setText(new GameMachine().buySubject(gameRoom)));
-//
-//        Button btnClear = new Button("Clear textArea");
-//        btnClear.setFont(new Font(15));
-//        btnClear.setOnAction(event ->textArea.clear());
-//
-//        Button btnPriceOfAllSubjects = new Button("PriceOfAllSubjects");
-//        btnPriceOfAllSubjects.setFont(new Font(15));
-//
-//        btnPriceOfAllSubjects.setOnAction(event -> textArea.setText(gameRoom.priceOfAllSubjects()));
-//
-//        Button btnWeightOfAllSubjects = new Button("WeightOfAllSubjects");
-//        btnWeightOfAllSubjects.setFont(new Font(15));
-//
-//        btnWeightOfAllSubjects.setOnAction(event -> textArea.setText(gameRoom.weightOfAllSubjects()));
-//
-//        Button btnSubjectWithMaxPrice = new Button("SubjectWithMaxPrice");
-//        btnSubjectWithMaxPrice.setFont(new Font(15));
-//
-//        btnSubjectWithMaxPrice.setOnAction(event -> textArea.setText(gameRoom.subjectWithMaxPrice()));
-//
-//        Button btnSubjectWithMaxWeight = new Button("SubjectWithMaxWeight");
-//        btnSubjectWithMaxWeight.setFont(new Font(15));
-//
-//        btnSubjectWithMaxWeight.setOnAction(event -> textArea.setText(gameRoom.subjectWithMaxWeight()));
-//
-//        Button btnAllSubjects = new Button("Print AllSubjects");
-//        btnAllSubjects.setFont(new Font(15));
-//
-//        btnAllSubjects.setOnAction(event -> textArea.setText(gameRoom.allSubjects().toString()));
-//
-//        Button btnSortByPrice = new Button("Sort By Price");
-//        btnSortByPrice.setFont(new Font(15));
-//
-//        btnSortByPrice.setOnAction(event -> gameRoom.sortByPrice());
-//
-//
-//        Button btnSortByWeight = new Button("Sort By Weight");
-//        btnSortByWeight.setFont(new Font(15));
-//
-//        btnSortByWeight.setOnAction(event -> gameRoom.sortByWeight());
-//
-//
-//        TextField textField = new TextField();
-//        textField.setFont(new Font(15));
-//
-//
-//        Button btnSearchByPrice = new Button("Search by price");
-//        btnSearchByPrice.setFont(new Font(15));
-//
-//        btnSearchByPrice.setOnAction(event -> textArea.setText(gameRoom.searchByPrice(textField.getText())));
-//
-//
-//        Button btnSearchByName = new Button("Search by name");
-//        btnSearchByName.setFont(new Font(15));
-//
-//        btnSearchByName.setOnAction(event -> textArea.setText(gameRoom.searchByName(textField.getText())));
-//
-//        Button btnAmountOfOperation = new Button("Amount Of Operation");
-//        btnAmountOfOperation.setFont(new Font(15));
-//
-//        btnAmountOfOperation.setOnAction(event -> textArea.setText(gameRoom.getAmountOfOperation()));
-//
+        Button btnAdd = new Button("Add car");
+        btnAdd.setFont(new Font(15));
+        btnAdd.setOnAction(event -> textArea.setText(new Post().addCar(carPark)));
+
+
+        Button btnHurdAdd = new Button("Add car hurd");
+        btnHurdAdd.setFont(new Font(15));
+        btnHurdAdd.setOnAction(event -> textArea.setText(new Post().addCarHurd(carPark)));
+
+        Button btnClear = new Button("Clear textArea");
+        btnClear.setFont(new Font(15));
+        btnClear.setOnAction(event ->textArea.clear());
+
+        Button btnPriceOfAllVisitor = new Button("Price Of All Visitor");
+        btnPriceOfAllVisitor.setFont(new Font(15));
+
+        btnPriceOfAllVisitor.setOnAction(event -> textArea.setText(carPark.priceOfAllParkVisitor()));
+
+        Button btnWeightOfAllVisitor = new Button("Weight Of All Visitor");
+        btnWeightOfAllVisitor.setFont(new Font(15));
+
+
+        btnWeightOfAllVisitor.setOnAction(event -> textArea.setText(carPark.weightOfAllParkVisitors()));
+
+        Button btnVisitorWithMaxPrice = new Button("Visitor With Max Price");
+        btnVisitorWithMaxPrice.setFont(new Font(15));
+
+        btnVisitorWithMaxPrice.setOnAction(event -> textArea.setText(carPark.ParkVisitorWithMaxPrice()));
+
+        Button btnVisitorWithMaxWeight = new Button("Visitor With Max Weight");
+        btnVisitorWithMaxWeight.setFont(new Font(15));
+
+        btnVisitorWithMaxWeight.setOnAction(event -> textArea.setText(carPark.ParkVisitorWithMaxWeight()));
+
+        Button btnAllVisitor = new Button("Print All Visitors");
+        btnAllVisitor.setFont(new Font(15));
+
+        btnAllVisitor.setOnAction(event -> textArea.setText(carPark.allParkVisitors().toString()));
+
+
+        Button btnAllVisitorToFile = new Button("Print All Visitors in file");
+        btnAllVisitorToFile.setFont(new Font(15));
+
+        btnAllVisitorToFile.setOnAction(event -> textArea.setText(carPark.allParkVisitorsToFile()));
+
+
+        Button btnSortByPrice = new Button("Sort By Price");
+        btnSortByPrice.setFont(new Font(15));
+
+        btnSortByPrice.setOnAction(event -> carPark.sortByPrice());
+
+
+        Button btnSortByWeight = new Button("Sort By Weight");
+        btnSortByWeight.setFont(new Font(15));
+
+        btnSortByWeight.setOnAction(event -> carPark.sortByWeight());
+
+
+        TextField textField = new TextField();
+        textField.setFont(new Font(15));
+
+
+        Button btnSearchByPrice = new Button("Search by price");
+        btnSearchByPrice.setFont(new Font(15));
+
+        btnSearchByPrice.setOnAction(event -> textArea.setText(carPark.searchByPrice(textField.getText())));
+
+
+        Button btnSearchByName = new Button("Search by name");
+        btnSearchByName.setFont(new Font(15));
+
+        btnSearchByName.setOnAction(event -> textArea.setText(carPark.searchByName(textField.getText())));
+
+        Button btnAmountOfOperation = new Button("Amount Of Operation");
+        btnAmountOfOperation.setFont(new Font(15));
+
+        btnAmountOfOperation.setOnAction(event -> textArea.setText(carPark.getAmountOfOperation()));
+
         FlowPane root = new FlowPane(10,10, textArea
-
-//                ,btnAdd,btnClear,btnPriceOfAllSubjects,btnWeightOfAllSubjects
-//                ,btnSubjectWithMaxPrice,btnSubjectWithMaxWeight,btnAllSubjects,btnSortByPrice,btnSortByWeight,textField
-//                ,btnSearchByPrice,btnSearchByName,btnAmountOfOperation
+                ,btnAdd,btnHurdAdd,btnClear,btnPriceOfAllVisitor,btnWeightOfAllVisitor
+                ,btnVisitorWithMaxPrice,btnVisitorWithMaxWeight,btnAllVisitor,btnAllVisitorToFile,btnSortByPrice,btnSortByWeight,textField
+                ,btnSearchByPrice,btnSearchByName,btnAmountOfOperation
 
         );
         root.setAlignment(Pos.CENTER);
 
 
-        primaryStage.setTitle("GameRoom");
-        primaryStage.setScene(new Scene(root, 600, 600));
+        primaryStage.setTitle("CarPark");
+        primaryStage.setScene(new Scene(root, 650, 700));
         primaryStage.show();
     }
 }
