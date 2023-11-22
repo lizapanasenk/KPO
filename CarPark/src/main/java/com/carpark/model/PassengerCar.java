@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class PassengerCar extends ParkVisitor{
 
-    public PassengerCar(Date movedIn, Date movedOut, int weight, String nameOfParkVisitor) {
-        super(movedIn, movedOut, weight, nameOfParkVisitor);
+    public PassengerCar(Date movedIn, int weight, String nameOfParkVisitor) {
+        super(movedIn, weight, nameOfParkVisitor);
     }
 
     @Override
@@ -14,7 +14,7 @@ public class PassengerCar extends ParkVisitor{
     }
 
     @Override
-    public String getName() {
+    public String getNameOfCar() {
         return "PassengerCar";
     }
 }

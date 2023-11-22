@@ -4,15 +4,14 @@ import java.util.Date;
 
 public class ParkVisitor {
 
-    protected final Date movedIn;
-    protected final Date movedOut;
+    protected Date movedIn;
     protected final int weight;
 
     protected final String name;
 
-    public ParkVisitor(Date movedIn, Date movedOut, int weight, String name) {
+
+    public ParkVisitor(Date movedIn, int weight, String name) {
         this.movedIn = movedIn;
-        this.movedOut = movedOut;
         this.weight = weight;
         this.name = name;
     }
@@ -23,15 +22,18 @@ public class ParkVisitor {
         return movedIn;
     }
 
-    public Date getMovedOut() {
-        return movedOut;
-    }
-
     public int getWeight() {
         return weight;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setDate(Date date) {
+        this.movedIn = date;
+    }
+    public String getNameOfCar(){
+        return "";
     }
 }
