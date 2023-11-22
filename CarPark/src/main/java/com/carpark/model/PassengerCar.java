@@ -9,7 +9,12 @@ public class PassengerCar extends ParkVisitor{
     }
 
     @Override
-    public String getNameOfParkVisitor() {
+    public int getPrice() {
+        return 4;
+    }
+
+    @Override
+    public String getName() {
         return "PassengerCar";
     }
 }

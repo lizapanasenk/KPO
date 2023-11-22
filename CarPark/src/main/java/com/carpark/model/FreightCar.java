@@ -7,9 +7,12 @@ public class FreightCar extends ParkVisitor{
     public FreightCar(Date movedIn, Date movedOut, int weight, String nameOfParkVisitor) {
         super(movedIn, movedOut, weight, nameOfParkVisitor);
     }
-
     @Override
-    public String getNameOfParkVisitor() {
+    public int getPrice() {
+        return 8;
+    }
+    @Override
+    public String getName() {
         return "FreightCar";
     }
 }

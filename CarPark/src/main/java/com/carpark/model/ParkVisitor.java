@@ -7,15 +7,18 @@ public class ParkVisitor {
     protected final Date movedIn;
     protected final Date movedOut;
     protected final int weight;
-    protected final String nameOfParkVisitor;
 
-    public ParkVisitor(Date movedIn, Date movedOut, int weight, String nameOfParkVisitor) {
+    protected final String name;
+
+    public ParkVisitor(Date movedIn, Date movedOut, int weight, String name) {
         this.movedIn = movedIn;
         this.movedOut = movedOut;
         this.weight = weight;
-        this.nameOfParkVisitor = nameOfParkVisitor;
+        this.name = name;
     }
-
+    public int getPrice(){
+        return 5;
+    }
     public Date getMovedIn() {
         return movedIn;
     }
@@ -28,7 +31,7 @@ public class ParkVisitor {
         return weight;
     }
 
-    public String getNameOfParkVisitor() {
-        return nameOfParkVisitor;
+    public String getName() {
+        return name;
     }
 }
