@@ -1,4 +1,5 @@
 module com.carpark {
+    requires org.apache.logging.log4j;
     requires WriteToFile;
     requires javafx.controls;
     requires javafx.fxml;

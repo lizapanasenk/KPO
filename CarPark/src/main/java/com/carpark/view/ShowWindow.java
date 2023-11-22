@@ -105,7 +105,6 @@ public class ShowWindow {
         );
         root.setAlignment(Pos.CENTER);
 
-
         primaryStage.setTitle("CarPark");
         primaryStage.setScene(new Scene(root, 650, 700));
         primaryStage.show();

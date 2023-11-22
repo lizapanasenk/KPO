@@ -1,11 +1,15 @@
 package com.carpark.model;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
 public class ParkVisitors {
+    private Logger logger = LogManager.getLogger(ParkVisitors.class);
     private final List<ParkVisitor> parkVisitors;
 
     public ParkVisitors() {
@@ -39,34 +43,62 @@ public class ParkVisitors {
         return parkVisitors1;
     }
     public String priceOfAll(){
-        int sum = 0;
-        for (ParkVisitor parkVisitor: parkVisitors) {
-            sum+=parkVisitor.getPrice();
+        try {
+            if (parkVisitors.isEmpty())
+                throw new Exception("Array is empty");
+            int sum = 0;
+            for (ParkVisitor parkVisitor : parkVisitors) {
+                sum += parkVisitor.getPrice();
+            }
+            return "Price of all ParkVisitor " + sum;
+        }catch (Exception e){
+            logger.error("Error",e);
+            return "Add visitor";
         }
-        return "Price of all ParkVisitor "+sum;
     }
     public String weightOfAll(){
+        try {
+            if (parkVisitors.isEmpty())
+                throw new Exception("Array is empty");
         int sum = 0;
         for (ParkVisitor parkVisitor: parkVisitors) {
             sum+=parkVisitor.getWeight();
         }
         return "Weight of all ParkVisitor "+sum;
-    }
-    public String maxWeight(){
-        ParkVisitor parkVisitor = parkVisitors.get(parkVisitors.size()-1);
-        for (ParkVisitor parkVisitor1: parkVisitors) {
-            if(parkVisitor.getWeight()<parkVisitor1.getWeight())
-                parkVisitor=parkVisitor1;
+        }catch (Exception e){
+            logger.error("Error",e);
+            return "Add visitor";
         }
-        return "ParkVisitor with max weight = "+parkVisitor;
+    }
+    public String maxWeight() {
+        try {
+            if (parkVisitors.isEmpty())
+                throw new Exception("Array is empty");
+            ParkVisitor parkVisitor = parkVisitors.get(parkVisitors.size() - 1);
+            for (ParkVisitor parkVisitor1 : parkVisitors) {
+                if (parkVisitor.getWeight() < parkVisitor1.getWeight())
+                    parkVisitor = parkVisitor1;
+            }
+            return "ParkVisitor with max weight = " + parkVisitor;
+        } catch (Exception e) {
+            logger.error("Error", e);
+            return "Add visitor";
+        }
     }
     public String maxPrice(){
+            try {
+                if (parkVisitors.isEmpty())
+                    throw new Exception("Array is empty");
         ParkVisitor parkVisitor = parkVisitors.get(parkVisitors.size()-1);
         for (ParkVisitor parkVisitor1: parkVisitors) {
             if(parkVisitor.getPrice()<parkVisitor1.getPrice())
                 parkVisitor=parkVisitor1;
         }
         return "ParkVisitor with max price = "+parkVisitor;
+    }catch (Exception e){
+        logger.error("Error",e);
+        return "Add visitor";
+        }
     }
     public ParkVisitor get(int number) {
         return parkVisitors.get(number);
