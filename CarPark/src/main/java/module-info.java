@@ -1,4 +1,5 @@
 module com.carpark {
+    requires WriteToFile;
     requires javafx.controls;
     requires javafx.fxml;
 

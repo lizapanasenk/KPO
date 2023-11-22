@@ -1,5 +1,7 @@
 package com.carpark.model;
 
+import org.writeF.Write;
+
 public class CarPark {
         private final ParkVisitors parkVisitorList;
         private int amountOfOperation;
@@ -49,10 +51,9 @@ public class CarPark {
 
                 return parkVisitorList;
         }
-//        public String allParkVisitorsToFile(){
-//                Write writeToFile = new Write();
-//                return writeToFile.WriteToFile(allSubjects().toString());
-//        }
+        public String allParkVisitorsToFile(){
+                return Write.write("output.txt",allParkVisitors().toString());
+        }
         public String searchByName(String name){
                 amountOfOperation++;
                 if(parkVisitorList.searchByName(name)!=null)

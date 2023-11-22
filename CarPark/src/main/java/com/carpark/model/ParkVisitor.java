@@ -36,4 +36,9 @@ public class ParkVisitor {
     public String getNameOfCar(){
         return "";
     }
+    @Override
+    public String toString() {
+        return "Type - "+ getNameOfCar() +" Name - "+getName()+" Weight - "+getWeight()+" Price - "+getPrice()+"Date of moved in - "+getMovedIn()+"\n";
+
+    }
 }
