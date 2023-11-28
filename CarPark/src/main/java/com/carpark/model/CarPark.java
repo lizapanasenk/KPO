@@ -5,7 +5,7 @@ import org.writeF.Write;
 import java.io.Serializable;
 
 public class CarPark implements Serializable {
-        private final ParkVisitors parkVisitorList;
+        private ParkVisitors parkVisitorList;
         private int amountOfOperation;
         public CarPark() {
                 this.parkVisitorList = new ParkVisitors();
@@ -71,5 +71,10 @@ public class CarPark implements Serializable {
         }
         public String getAmountOfOperation(){
                 return "Amount of operation = "+amountOfOperation;
+        }
+
+        public void clear() {
+                this.parkVisitorList = new ParkVisitors();
+                this.amountOfOperation = 0;
         }
 }

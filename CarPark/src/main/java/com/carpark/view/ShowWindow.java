@@ -100,7 +100,7 @@ public class ShowWindow {
         btnAmountOfOperation.setOnAction(event -> textArea.setText(carPark.getAmountOfOperation()));
 
 
-        Button btnSave = new Button("Save Post");
+        Button btnSave = new Button("Save CarPark");
         btnSave.setFont(new Font(15));
 
         btnSave.setOnAction(event -> {
@@ -110,11 +110,17 @@ public class ShowWindow {
                 throw new RuntimeException(e);
             }
         });
+        Button btnNew = new Button("New CarPark");
+        btnNew.setFont(new Font(15));
+
+        btnNew.setOnAction(event -> {
+            carPark.clear();
+        });
 
         FlowPane root = new FlowPane(10,10, textArea
                 ,btnAdd,btnHurdAdd,btnClear,btnPriceOfAllVisitor,btnWeightOfAllVisitor
                 ,btnVisitorWithMaxPrice,btnVisitorWithMaxWeight,btnAllVisitor,btnAllVisitorToFile,btnSortByPrice,btnSortByWeight,textField
-                ,btnSearchByPrice,btnSearchByName,btnAmountOfOperation,btnSave
+                ,btnSearchByPrice,btnSearchByName,btnAmountOfOperation,btnSave,btnNew
 
         );
         root.setAlignment(Pos.CENTER);
