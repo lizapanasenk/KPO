@@ -3,13 +3,14 @@ package com.carpark.model;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-public class ParkVisitors {
-    private Logger logger = LogManager.getLogger(ParkVisitors.class);
+public class ParkVisitors implements Serializable {
+    private final Logger logger = LogManager.getLogger(ParkVisitors.class);
     private final List<ParkVisitor> parkVisitors;
 
     public ParkVisitors() {

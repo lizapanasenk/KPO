@@ -12,6 +12,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class ShowWindow {
     public ShowWindow(CarPark carPark ,Stage primaryStage){
         TextArea textArea = new TextArea();
@@ -97,10 +99,22 @@ public class ShowWindow {
 
         btnAmountOfOperation.setOnAction(event -> textArea.setText(carPark.getAmountOfOperation()));
 
+
+        Button btnSave = new Button("Save Post");
+        btnSave.setFont(new Font(15));
+
+        btnSave.setOnAction(event -> {
+            try {
+                WriteSavedPost.setCarPark(carPark);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
         FlowPane root = new FlowPane(10,10, textArea
                 ,btnAdd,btnHurdAdd,btnClear,btnPriceOfAllVisitor,btnWeightOfAllVisitor
                 ,btnVisitorWithMaxPrice,btnVisitorWithMaxWeight,btnAllVisitor,btnAllVisitorToFile,btnSortByPrice,btnSortByWeight,textField
-                ,btnSearchByPrice,btnSearchByName,btnAmountOfOperation
+                ,btnSearchByPrice,btnSearchByName,btnAmountOfOperation,btnSave
 
         );
         root.setAlignment(Pos.CENTER);

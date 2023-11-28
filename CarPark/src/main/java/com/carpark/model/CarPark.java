@@ -2,7 +2,9 @@ package com.carpark.model;
 
 import org.writeF.Write;
 
-public class CarPark {
+import java.io.Serializable;
+
+public class CarPark implements Serializable {
         private final ParkVisitors parkVisitorList;
         private int amountOfOperation;
         public CarPark() {

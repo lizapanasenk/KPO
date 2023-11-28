@@ -1,8 +1,9 @@
 package com.carpark.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ParkVisitor {
+public class ParkVisitor implements Serializable {
 
     protected Date movedIn;
     protected final int weight;
