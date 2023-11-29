@@ -26,7 +26,7 @@ public class Post {
         ParkVisitor parkVisitor =parkVisitors.get(random.nextInt(parkVisitors.size()));
         parkVisitor.setDate(new Date());
         carPark.addParkVisitor(parkVisitor);
-        return parkVisitor +" add to Car park\n";
+        return parkVisitor +LocalManager.getMessage().getString("AddOnPost")+" \n";
     }
     public String addCarHurd(CarPark carPark){
         StringBuilder all = new StringBuilder();

@@ -1,5 +1,7 @@
 package com.carpark.model;
 
+import com.carpark.controller.LocalManager;
+
 import java.util.Date;
 
 public class PassengerCar extends ParkVisitor{
@@ -15,6 +17,6 @@ public class PassengerCar extends ParkVisitor{
 
     @Override
     public String getNameOfCar() {
-        return "PassengerCar";
+        return LocalManager.getMessage().getString("PassengerCar");
     }
 }

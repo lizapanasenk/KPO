@@ -1,5 +1,6 @@
 package com.carpark.model;
 
+import com.carpark.controller.LocalManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -46,59 +47,59 @@ public class ParkVisitors implements Serializable {
     public String priceOfAll(){
         try {
             if (parkVisitors.isEmpty())
-                throw new Exception("Array is empty");
+                throw new Exception(LocalManager.getMessage().getString("arrayEmpty"));
             int sum = 0;
             for (ParkVisitor parkVisitor : parkVisitors) {
                 sum += parkVisitor.getPrice();
             }
-            return "Price of all ParkVisitor " + sum;
+            return LocalManager.getMessage().getString("priceOfAllVisitor") + sum;
         }catch (Exception e){
             logger.error("Error",e);
-            return "Add visitor";
+            return LocalManager.getMessage().getString("PleaseAddVisitor");
         }
     }
     public String weightOfAll(){
         try {
             if (parkVisitors.isEmpty())
-                throw new Exception("Array is empty");
+                throw new Exception(LocalManager.getMessage().getString("arrayEmpty"));
         int sum = 0;
         for (ParkVisitor parkVisitor: parkVisitors) {
             sum+=parkVisitor.getWeight();
         }
-        return "Weight of all ParkVisitor "+sum;
+        return LocalManager.getMessage().getString("WeightOfAllVisitor")+sum;
         }catch (Exception e){
             logger.error("Error",e);
-            return "Add visitor";
+            return LocalManager.getMessage().getString("PleaseAddVisitor");
         }
     }
     public String maxWeight() {
         try {
             if (parkVisitors.isEmpty())
-                throw new Exception("Array is empty");
+                throw new Exception(LocalManager.getMessage().getString("arrayEmpty"));
             ParkVisitor parkVisitor = parkVisitors.get(parkVisitors.size() - 1);
             for (ParkVisitor parkVisitor1 : parkVisitors) {
                 if (parkVisitor.getWeight() < parkVisitor1.getWeight())
                     parkVisitor = parkVisitor1;
             }
-            return "ParkVisitor with max weight = " + parkVisitor;
+            return LocalManager.getMessage().getString("VisitorWithMaxWeight") + parkVisitor;
         } catch (Exception e) {
             logger.error("Error", e);
-            return "Add visitor";
+            return LocalManager.getMessage().getString("PleaseAddVisitor");
         }
     }
     public String maxPrice(){
             try {
                 if (parkVisitors.isEmpty())
-                    throw new Exception("Array is empty");
+                    throw new Exception(LocalManager.getMessage().getString("arrayEmpty"));
         ParkVisitor parkVisitor = parkVisitors.get(parkVisitors.size()-1);
         for (ParkVisitor parkVisitor1: parkVisitors) {
             if(parkVisitor.getPrice()<parkVisitor1.getPrice())
                 parkVisitor=parkVisitor1;
         }
-        return "ParkVisitor with max price = "+parkVisitor;
+        return LocalManager.getMessage().getString("VisitorWithMaxPrice")+parkVisitor;
     }catch (Exception e){
         logger.error("Error",e);
-        return "Add visitor";
+        return LocalManager.getMessage().getString("PleaseAddVisitor");
         }
     }
     public ParkVisitor get(int number) {
@@ -119,7 +120,7 @@ public class ParkVisitors implements Serializable {
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (ParkVisitor parkVisitor : parkVisitors)
-            result.append(parkVisitor);
+            result.append(parkVisitor).append("\n");
         return result.toString();
     }
 

@@ -1,5 +1,6 @@
 package com.carpark.model;
 
+import com.carpark.controller.LocalManager;
 import org.writeF.Write;
 
 import java.io.Serializable;
@@ -60,17 +61,17 @@ public class CarPark implements Serializable {
                 amountOfOperation++;
                 if(parkVisitorList.searchByName(name)!=null)
                         return parkVisitorList.searchByName(name).toString();
-                return "No results";
+                return LocalManager.getMessage().getString("search");
         }
         public String searchByPrice(String price){
                 amountOfOperation++;
 
                 if(parkVisitorList.searchByPrice(price)!=null)
                         return parkVisitorList.searchByPrice(price).toString();
-                return "No results";
+                return LocalManager.getMessage().getString("search");
         }
         public String getAmountOfOperation(){
-                return "Amount of operation = "+amountOfOperation;
+                return LocalManager.getMessage().getString("getAmountOfOperation")+amountOfOperation;
         }
 
         public void clear() {

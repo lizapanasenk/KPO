@@ -1,5 +1,7 @@
 package com.carpark.model;
 
+import com.carpark.controller.LocalManager;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -39,7 +41,11 @@ public class ParkVisitor implements Serializable {
     }
     @Override
     public String toString() {
-        return "Type - "+ getNameOfCar() +" Name - "+getName()+" Weight - "+getWeight()+" Price - "+getPrice()+"Date of moved in - "+getMovedIn()+"\n";
+        return LocalManager.getMessage().getString("Type")+" "+ getNameOfCar()+" "
+                +LocalManager.getMessage().getString("Name")+" " +getName()+" "
+                +LocalManager.getMessage().getString("Weight")+" "+getWeight()+" "
+                +LocalManager.getMessage().getString("Price")+" "+getPrice()+" \n"
+                +LocalManager.getMessage().getString("DateMoveIn")+" "+getMovedIn()+" ";
 
     }
 }
