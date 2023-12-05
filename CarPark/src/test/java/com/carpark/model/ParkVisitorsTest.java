@@ -1,5 +1,6 @@
 package com.carpark.model;
 
+import com.carpark.controller.LocalManager;
 import com.carpark.controller.Post;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -69,7 +70,7 @@ class ParkVisitorsTest {
             for (ParkVisitor subjectToBuy : carPark.allParkVisitors().getAll()) {
                 sum += subjectToBuy.getPrice();
             }
-            Assertions.assertEquals("Price of all ParkVisitor " + sum, carPark.allParkVisitors().priceOfAll());
+            Assertions.assertEquals(LocalManager.getMessage().getString("priceOfAllVisitor") + sum, carPark.allParkVisitors().priceOfAll());
             setUp();
         }
         long endTime = System.currentTimeMillis();
@@ -84,7 +85,7 @@ class ParkVisitorsTest {
             for (ParkVisitor subjectToBuy : carPark.allParkVisitors().getAll()) {
                 sum += subjectToBuy.getWeight();
             }
-            Assertions.assertEquals("Weight of all ParkVisitor " + sum, carPark.allParkVisitors().weightOfAll());
+            Assertions.assertEquals(LocalManager.getMessage().getString("WeightOfAllVisitor") + sum, carPark.allParkVisitors().weightOfAll());
             setUp();
         }
     }
@@ -96,7 +97,7 @@ class ParkVisitorsTest {
                 if (maxSubjectToBuy.getWeight() < subjectToBuy.getWeight())
                     maxSubjectToBuy = subjectToBuy;
             }
-            Assertions.assertEquals("ParkVisitor with max weight = " + maxSubjectToBuy, carPark.allParkVisitors().maxWeight());
+            Assertions.assertEquals(LocalManager.getMessage().getString("VisitorWithMaxWeight") + maxSubjectToBuy, carPark.allParkVisitors().maxWeight());
             setUp();
         }
     }
@@ -108,7 +109,7 @@ class ParkVisitorsTest {
                 if (maxSubjectToBuy.getPrice() < subjectToBuy.getPrice())
                     maxSubjectToBuy = subjectToBuy;
             }
-            Assertions.assertEquals("ParkVisitor with max price = " + maxSubjectToBuy, carPark.allParkVisitors().maxPrice());
+            Assertions.assertEquals(LocalManager.getMessage().getString("VisitorWithMaxPrice") + maxSubjectToBuy, carPark.allParkVisitors().maxPrice());
             setUp();
         }
     }
