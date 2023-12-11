@@ -10,16 +10,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Locale;
 
-public class CarParkApplication extends Application {
-    @Override
-    public void start(Stage primaryStage) {
-        try {
-            new ShowWindow(WriteSavedPost.getCarPark(),primaryStage);
-        } catch (IOException | ClassNotFoundException e) {
-            new ShowWindow(new CarPark(),primaryStage);
-        }
-    }
+public class CarParkApplication{
+
     public static void main(String[] args) {
-        launch();
+        CarParkApplicationSecond.main(args);
     }
 }
