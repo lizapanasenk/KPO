@@ -4,9 +4,12 @@ package com.carpark.view;
 import com.carpark.controller.LocalManager;
 import com.carpark.controller.Post;
 import com.carpark.model.CarPark;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
@@ -14,14 +17,33 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ShowWindow {
     public ShowWindow(CarPark carPark ,Stage primaryStage){
+
+        ObservableList<String> langs = FXCollections.observableArrayList("en", "ru");
+        ComboBox<String> langsComboBox = new ComboBox<String>(langs);
+        langsComboBox.setValue("ru"); // устанавливаем выбранный элемент по умолчанию
+
+        // получаем выбранный элемент
+        langsComboBox.setOnAction(event ->
+
+        {
+            LocalManager.setCurrentLocale(new Locale(langsComboBox.getValue()));
+            primaryStage.setScene(showMainScene(carPark,langsComboBox));
+        });
+        primaryStage.setScene(showMainScene(carPark,langsComboBox));
+        primaryStage.setTitle("CarPark");
+        primaryStage.show();
+    }
+
+    private Scene showMainScene(CarPark carPark, ComboBox<String> langsComboBox){
         ResourceBundle message= LocalManager.getMessage();
         TextArea textArea = new TextArea();
         textArea.setPrefColumnCount(50);
-        textArea.setPrefRowCount(30);
+        textArea.setPrefRowCount(25);
 
 
 
@@ -118,7 +140,7 @@ public class ShowWindow {
             carPark.clear();
         });
 
-        FlowPane root = new FlowPane(10,10, textArea
+        FlowPane root = new FlowPane(10,10,langsComboBox, textArea
                 ,btnAdd,btnHurdAdd,btnClear,btnPriceOfAllVisitor,btnWeightOfAllVisitor
                 ,btnVisitorWithMaxPrice,btnVisitorWithMaxWeight,btnAllVisitor,btnAllVisitorToFile,btnSortByPrice,btnSortByWeight,textField
                 ,btnSearchByPrice,btnSearchByName,btnAmountOfOperation,btnSave,btnNew
@@ -126,8 +148,6 @@ public class ShowWindow {
         );
         root.setAlignment(Pos.CENTER);
 
-        primaryStage.setTitle(message.getString("CarPark"));
-        primaryStage.setScene(new Scene(root, 650, 800));
-        primaryStage.show();
+      return new Scene(root, 650, 820);
     }
 }

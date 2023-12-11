@@ -13,7 +13,6 @@ import java.util.Locale;
 public class CarParkApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
-        LocalManager.setCurrentLocale(new Locale("ru"));
         try {
             new ShowWindow(WriteSavedPost.getCarPark(),primaryStage);
         } catch (IOException | ClassNotFoundException e) {
